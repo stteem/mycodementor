@@ -1,0 +1,42 @@
+[nz-menu] {
+    position: absolute;
+    top: 50px;
+    left: 250px;
+    background: transparent;
+    color: wheat;
+    font-size: 1em;
+    border-bottom: none;
+    width: 400px;
+}
+
+[nz-menu] :hover {
+    color:#7ed957;
+    border-bottom: 2px solid #7ed957;
+}
+
+/* On hover changes color of all list items. 
+Required behaviour should chage color per item hovered
+
+::ng-deep [nz-submenu] :hover {
+    color:#7ed957 !important;
+}*/
+
+::ng-deep .ant-menu-submenu-active :hover {
+    color:#7ed957 !important;
+}
+
+::ng-deep .ant-menu-submenu-active {
+    color:#7ed957 !important;
+    border-bottom: 2px solid #7ed957 !important;
+}
+
+.ant-menu-item-selected {
+    color: #7ed957 !important;
+    border-bottom: 2px solid #7ed957 !important;
+
+}
+
+.ant-menu-submenu-selected, .anticon + span {
+    color: #7ed957 !important;
+    border-bottom: 2px solid #7ed957 !important;
+}

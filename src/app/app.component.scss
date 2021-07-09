@@ -7,23 +7,25 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  
 .banner {
+  background-color: #7ed957;
+}
+#inner-banner {
   //display: flex;
   margin: 0;
   width: 100%;
-  min-height: 650px;
+  min-height: 750px;
   border-radius: 0 0 200px 0;
   //background-color: #023024;
   background: linear-gradient(270deg, #1bbd94, #023024);
-  background-size: 400% 400%;
+  /*background-size: 400% 400%;
 
  -webkit-animation: AnimationName 30s ease infinite;
   -moz-animation: AnimationName 30s ease infinite;
-  animation: AnimationName 30s ease infinite;
+  animation: AnimationName 30s ease infinite;*/
 }
 
-@-webkit-keyframes AnimationName {
+/*@-webkit-keyframes AnimationName {
   0%{background-position:0% 51%}
   50%{background-position:100% 50%}
   100%{background-position:0% 51%}
@@ -37,27 +39,33 @@
   0%{background-position:0% 51%}
   50%{background-position:100% 50%}
   100%{background-position:0% 51%}
-}
+}*/
 
   #logo {
-    //position: absolute;
     width: 35%;
     height: 35%;
-    //top: 20px;
-    //left: 30px;
+  }
+
+  .container {
+    display:flex;
+    flex-flow: column;
+    //min-height: 650px;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: top;
+    //object-fit: contain;
   }
   
   #banner-msg {
-    position: absolute;
-    width: 90%;
-    top: 150px;
-    //left: 20px;
+    //position: relative;
+    z-index: 3;
+    margin-top: 50px;
+    margin-bottom: 80px;
     text-align: center;
-    //padding: 15px;
   }
 
   #msg1 {
-    color: #fff;
+    color: wheat;
     font-family: montserrat,Sans-serif;
     font-size: 20px;
     font-weight: 300;
@@ -67,7 +75,7 @@
   }
 
   #msg2 {
-    color: #fff;
+    color: wheat;
     font-family: varela round,Sans-serif;
     font-size: 30px;
     font-weight: 300;
@@ -78,7 +86,7 @@
   }
 
   #msg3 {
-    color: #fff;
+    color: wheat;
     font-family: montserrat,Sans-serif;
     font-size: 16px;
     font-weight: 200;
@@ -86,14 +94,39 @@
     text-align: center;
   }
 
+  .nzbutton {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .nzbutton [nz-button] {
+    background-color: #7ed957;
+    border-color: #7ed957;
+    color: #fff;
+  }
+
   @media screen and (min-width: 775px) {
+    .banner {
+      min-height: 650px;
+      border-radius: 0 0 200px 0;
+    }
+    #inner-banner {
+      border-radius: 0 0 600px 0;
+    }
     #logo {
-        width: 10%;
-        height: 10%;
+      margin-left: 95px;
+      width: 10%;
+      height: 10%;
+    }
+    .container {
+      flex-flow: row;
+      padding-left: 0;
+      padding-right: 0;
     }
     #banner-msg {
       width: 50%;
-      top: 250px;
+      margin-top: 120px;
       text-align: left;
       padding-left: 15px;
     }
@@ -108,15 +141,63 @@
     #msg3 {
       text-align: left;
     }
+    .nzbutton {
+      justify-content: left;
+    }
+    .nzbutton [nz-button] {
+      width: 150px;
+    }
+    
+  }
+
+  @media screen and (min-width: 500px) {
+    app-collapsible-navbar {
+      display: none;
+    }
+  }
+
+  #graphic1{
+    position: relative;
+    //top: 50px;
+    //float: right;
+    //background-color: aqua;
+  }
+
+  #graphic1 img {
+    height: 500px;
+  }
+
+  .content {
+    display: flex;
+    margin-top: 82px;
+    //margin: 82px auto 32px;
+    padding: 0 16px;
+    //max-width: 960px;
+    flex-direction: column;
+    //align-items: center;
+    //background-color: red;
+
+  }
+
+
+  #circle {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    background-color: wheat;
+  }
+
+  #shapes {
+    position: absolute;
+    z-index: 2;
+  }
+  #shapes img {
+    opacity: 0.1
   }
 
   @media screen and (max-width: 475px){
     #graphic1 img {
       height: 300px;
-    }
-    #graphic1 {
-      margin-top: 280px;
-      //object-fit: contain;
     }
 
     #circle img {
@@ -125,53 +206,62 @@
     #circle {
       object-fit: scale-down;
     }
-  }
- 
-  #graphic1{
-    float: right;
-    padding-top: 30px;
-    //background-color: aqua;
-  }
-
-  [nz-button] {
-    position: absolute;
-    top: 400px;
-    left: 30px;
-    background-color: #7ed957;
-    border-color: #7ed957;
-    color: #fff;
-  }
-
-  #circle {
-    width: 100%;
-    //top: 150px;
-  }
-
-  .container {
-    //display:flex;
-    padding-left: 30px;
-    padding-right: 30px;
-    align-items: top;
-  }
-  @media screen and (min-width: 775px) {
-    .container {
-      padding-left: 50px;
-      padding-right: 50px;
+    #shapes img {
+      width: 100%;
     }
-    [nz-button] {
-      top: 480px;
-      left: 60px;
-      width: 150px;
+    #circle img {
+      width: 100%;
+    }
+
+    app-navbar {
+      display: none;
     }
   }
 
-  [nz-button] #nzlink {
-    background-color: #1976d2;
-  }
+  
+#curved-corner-bottomleft,
+#curved-corner-bottomright,
+#curved-corner-topleft,
+#curved-corner-topright {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+}
+#curved-corner-bottomleft:before,
+#curved-corner-bottomright:before,
+#curved-corner-topleft:before,
+#curved-corner-topright:before {
+  content: "";
+  display: block;
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  border-radius: 50%;
+}
+#curved-corner-bottomleft:before {
+  bottom: 0;
+  left: 0;
+  box-shadow: -50px 50px 0 0 red;
+}
+#curved-corner-bottomright:before {
+  bottom: 0;
+  right: 0;
+  box-shadow: 50px 50px 0 0 red;
+}
+#curved-corner-topleft:before {
+  top: 0;
+  left: 0;
+  box-shadow: -50px -50px 0 0 red;
+}
+#curved-corner-topright:before {
+  top: 0;
+  right: 0;
+  box-shadow: 50px -50px 0 0 red;
+}
 
-  #nzlink {
-    width: 150px;
-  }
+
+
 
   h1,
   h2,
@@ -215,14 +305,7 @@
   }
 
 
-  .content {
-    display: flex;
-    margin: 82px auto 32px;
-    padding: 0 16px;
-    max-width: 960px;
-    flex-direction: column;
-    align-items: center;
-  }
+  
 
   
 

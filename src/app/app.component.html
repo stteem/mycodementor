@@ -11,24 +11,28 @@
       </svg>
     </a>
 </div> -->
-
+<app-collapsible-navbar></app-collapsible-navbar>
 <div class="banner" role="banner">
-  <div class="container">
+  <div id="inner-banner">
     <img id="logo" alt="mcm logo" src="../assets/images/mcm.png"/>
-    <div id="banner-msg">
-      <div id="msg1">Code Beyond Your Wildest Dreams</div>
-      <div id="msg2">Your Learning Curve Is About To Get Straightened</div>
-      <div id="msg3">You can do without a mentor, but a mentor helps you learn faster, and 
-        gets you on the right paths to becoming employable in the tech industry.</div>
-    </div>
-    <a href="#circl" nz-button [nzSize]="size" nzShape="round">Learn More<i nz-icon nzType="arrow-down" nzTheme="outline"></i></a>
-    <!--<button nz-button nzType="primary" [nzSize]="size" nzShape="round">
-    <nz-anchor [nzAffix]="false">
-      <nz-link nzHref="#circl" nzTitle="Learn More"></nz-link>
-    </nz-anchor>
-    </button>-->
-    <div id="graphic1">
-      <img alt="graphic of a girl" src="../assets/images/girl-halo-green.png"/>
+    <app-navbar></app-navbar>
+    <div class="container">
+      <div id="banner-msg">
+        <div id="msg1">Coding Mentorship For Professionals Looking To Switch Careers</div>
+        <div id="msg2">Your Learning Curve Is About To Get Straightened</div>
+        <div id="msg3">A mentor helps you learn faster, and 
+          gets you on the right path to becoming employable in the tech industry.</div>
+          <div class="nzbutton">
+            <a href="#circl" nz-button [nzSize]="size" nzShape="round" nzIcon="arrow-down">Learn More</a>
+          </div>
+      </div>
+      
+      <div id="graphic1">
+        <img alt="graphic of a girl" src="../assets/images/girl-halo-green.png"/>
+      </div>
+      <div id="shapes">
+        <img alt="transparent shapes" src="../assets/images/transparent-shapes.jpg"/>
+      </div>
     </div>
   </div>
 </div>
@@ -36,7 +40,18 @@
 <div id="circl" class="content" role="main">
   
   <div id="circle">
-    <img alt="graphic of a circle" src="../assets/images/tutor.gif"/>
+  <!--<img alt="graphic of a circle" src="../assets/images/tutor.gif"/>-->
+    <div id="background-shapes">
+      <div id="curved-corner-bottomleft"></div>
+      <div id="curved-corner-bottomright"></div>
+      <div id="curved-corner-topleft"></div>
+      <div id="curved-corner-topright"></div>
+    </div>
+    <div id="learning-curve">
+      <img alt="Learning curve graphic" src="../assets/images/lc.jpg"/>
+    </div>
+    
+
   </div>
   
 

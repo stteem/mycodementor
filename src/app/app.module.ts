@@ -20,6 +20,12 @@ import { NzAnchorModule } from 'ng-zorro-antd/anchor';
 import { NZ_ICONS } from 'ng-zorro-antd/icon';
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { CollapsibleNavbarComponent } from './collapsible-navbar/collapsible-navbar.component';
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 registerLocaleData(en);
@@ -31,7 +37,9 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    CollapsibleNavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +55,10 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     BrowserAnimationsModule,
     FlexLayoutModule,
     NzButtonModule,
-    NzAnchorModule
+    NzAnchorModule,
+    NzMenuModule,
+    NzCollapseModule,
+    NgbCollapseModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }, { provide: NZ_ICONS, useValue: icons }],
   bootstrap: [AppComponent]
