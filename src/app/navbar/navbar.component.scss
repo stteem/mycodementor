@@ -1,13 +1,18 @@
 [nz-menu] {
-    position: absolute;
-    top: 50px;
-    left: 250px;
+    margin-left: 100px;
     background: transparent;
-    color: wheat;
+    color: rgb(228, 255, 248);
     font-size: 1em;
     border-bottom: none;
-    width: 400px;
+    width: 85%;
+    //background-color: brown;
 }
+
+@media screen and (max-width: 700px) {
+    [nz-menu] {
+        margin-left: 0;
+    }
+  }
 
 [nz-menu] :hover {
     color:#7ed957;
@@ -39,4 +44,14 @@ Required behaviour should chage color per item hovered
 .ant-menu-submenu-selected, .anticon + span {
     color: #7ed957 !important;
     border-bottom: 2px solid #7ed957 !important;
+}
+
+[nz-menu] li a {
+    text-decoration: none;
+    border-bottom: none;
+    color: rgb(228, 255, 248);
+}
+
+[nz-menu] li a :hover {
+    color: #7ed957 !important;
 }

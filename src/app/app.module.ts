@@ -25,6 +25,12 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { CollapsibleNavbarComponent } from './collapsible-navbar/collapsible-navbar.component';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { BookSessionComponent } from './book-session/book-session.component';
+import { HomeComponent } from './home/home.component';
+
 
 
 
@@ -39,7 +45,9 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
   declarations: [
     AppComponent,
     NavbarComponent,
-    CollapsibleNavbarComponent
+    CollapsibleNavbarComponent,
+    BookSessionComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +66,10 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     NzAnchorModule,
     NzMenuModule,
     NzCollapseModule,
-    NgbCollapseModule
+    NgbCollapseModule,
+    NzCardModule,
+    NzGridModule,
+    NzIconModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }, { provide: NZ_ICONS, useValue: icons }],
   bootstrap: [AppComponent]

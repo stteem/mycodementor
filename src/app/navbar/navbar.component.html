@@ -1,17 +1,20 @@
-<ul nz-menu nzMode="horizontal">
-    <li nz-menu-item nzIcon="home">
-      Home
-    </li>
-    <li nz-menu-item nzIcon="info">
-      Pricing
+<ul nz-menu nzMode="horizontal" role="navigation">
+    <li nz-menu-item>
+      <a routerLink="/home" routerLinkActive="active">Home</a>
     </li>
     <li nz-menu-item>
-        Blog
+      <a routerLink="'.'" routerLinkActive="active">Pricing</a>
+    </li>
+    <li nz-menu-item>
+      <a routerLink="/booksession" routerLinkActive="active">Book a Session</a>
+    </li>
+    <li nz-menu-item>
+      <a routerLink="'.'" routerLinkActive="active">Blog</a>
     </li>
     <li nz-submenu nzTitle="Account" nzIcon="caret-down">
       <ul>
-        <li nz-menu-item>Dashboard</li>
-        <li nz-menu-item>Logout</li>
+        <li nz-menu-item><a routerLink="'.'" routerLinkActive="active">Dashboard</a></li>
+        <li nz-menu-item><a routerLink="'.'" routerLinkActive="active">Sign in</a></li>
       </ul>
     </li>
 </ul>

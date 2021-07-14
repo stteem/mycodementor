@@ -1,0 +1,27 @@
+<div role="banner">
+    <app-collapsible-navbar></app-collapsible-navbar>
+    <div class="logo-div">
+        <div class="container">
+            <div class="navbar-div">
+                <img id="logo" alt="mcm logo" src="../assets/images/mcm-logo.png"/>
+                <app-navbar></app-navbar>
+            </div>
+        </div>
+    </div> 
+    <header>
+        <div class="container">
+            <div id="banner-div">
+                <img id="banner-img" alt="banner matrix graphic" src="../assets/images/banner.png"/>
+             </div>
+        </div>
+    </header>
+     
+</div>
+
+<div role="main">       
+    <div class="container calendly-widget">
+        <!-- Calendly link widget begin -->
+        <a href="" nz-button [nzSize]="size" nzShape="round" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mycodingmentor9'});return false;">Schedule a session</a>
+        <!-- Calendly link widget end -->
+    </div>
+</div>

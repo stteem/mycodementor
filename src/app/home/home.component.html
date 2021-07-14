@@ -1,0 +1,208 @@
+
+
+<!-- Toolbar 
+<div class="toolbar" role="banner">
+    <img width="100" alt="Angular Logo" src="../assets/images/mcm-white.png"/>
+    <div class="spacer"></div>
+    <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
+      <svg id="twitter-logo" height="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+        <rect width="400" height="400" fill="none"/>
+        <path d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23" fill="#fff"/>
+      </svg>
+    </a>
+</div> -->
+<app-collapsible-navbar></app-collapsible-navbar>
+<div class="banner" role="banner" aria-label="banner">
+    
+  <div id="inner-banner">
+    <div class="container logo-div">
+        <img id="logo" alt="mcm logo" src="../assets/images/mcm-logo.png"/>
+        <app-navbar></app-navbar>
+    </div>
+    
+    <div class="container">
+      <div id="banner-msg">
+        <div id="msg1">1 On 1 Coding Mentorship For Beginners</div>
+        <div id="msg2">Your Learning Curve Is About To Get Straightened</div>
+        <div id="msg3">A mentor helps you learn faster, and 
+          gets you on the right path to becoming employable in the tech industry.</div>
+          <div class="nzbutton-1">
+            <a href="#circle" nz-button [nzSize]="size" nzShape="round" nzIcon="arrow-down">Learn More
+              <i nz-icon nzType="arrow-down" nzTheme="outline"></i>
+            </a>
+          </div>
+      </div>
+      
+      <div id="graphic1">
+        <img alt="graphic of a girl" src="../assets/images/girl-halo-green.png"/>
+      </div>
+      <div class="shapes">
+        <img alt="transparent shapes" src="../assets/images/magic-trans.png"/>
+      </div>
+    </div>
+  </div>
+  <div id="dough-div">
+    <img id="dough" alt="graphic" src="../assets/images/box.png"/>
+</div>
+</div>
+
+<div id="circl" class="content" role="main">
+  
+    <div id="circle" class="container top-margin">
+    
+        <div id="learning-curve">
+            <img alt="Learning curve graphic" src="../assets/images/lc.png"/>
+        </div>
+        <div id="learning-curve-description">
+            <h1>Beginner's Learning Curve</h1>
+            <p>As you might have guessed, coding is rewarding, and tedious. As a beginner without mentorship, 
+                your learning curve looks something like this right now.
+                Mentorship helps you cut to the chase, and level up.
+            </p>
+            <div class="nzbutton">
+                <a href="#mentorship" nz-button [nzSize]="size" nzShape="round" nzIcon="arrow-down">Learn More
+                <i nz-icon nzType="arrow-down" nzTheme="outline"></i>
+                </a>
+            </div>
+            <div class="shapes-2">
+                <img alt="transparent graphic" src="../assets/images/11.png"/>
+            </div>
+        </div>
+  </div>
+
+    <div id="mentorship" class="container top-margin">
+        <div id="mentorship-learning-curve-description">
+            <h1>Mentorship Learning Curve</h1>
+            <p>Getting a developer job depends on how much coding talents/skills you have. 
+                It could take about 3 years to accumulate enough skills if you are fast. 
+                With our mentorship, by the end of year 1 you will have accumulated relevant skills 
+                to start applying for jobs.
+            </p>
+            <div class="nzbutton">
+                <a href="#our-services" nz-button [nzSize]="size" nzShape="round" nzIcon="arrow-down">Learn More
+                <i nz-icon nzType="arrow-down" nzTheme="outline"></i>
+                </a>
+            </div>
+            <div class="shapes-2">
+                <img alt="transparent graphic" src="../assets/images/10.png"/>
+            </div>
+        </div>
+        <div id="mentor-learning-curve">
+            <img alt="Mentorship learning curve graphic" src="../assets/images/mentor-pop2.gif"/>
+        </div>
+    </div>
+  
+    <div id="our-services" class="top-margin-4">
+        <div id="box">
+            <img alt="3D box graphic" src="../assets/images/box.png"/>
+        </div>
+        <div id="two-d-shapes">
+            <img alt="2D shapes" src="../assets/images/14.png"/>
+        </div>
+        <div id="our-services-header">
+            <h2>What We Can Do For You</h2>
+            <h5>All sessions are done remotely via popular video call platforms. We use screen sharing, and 
+                remote control tools to interact with are mentees.
+            </h5>
+        </div>
+
+        <div class="container services">
+            <div nz-row [nzGutter]="[16, 16]">
+                <div nz-col nzXs="24" nzMd="12">
+                    <nz-card nzTitle="Study Plan" class="grid-config">
+                        <p>Are you confused about where and how to start learning how to code?
+                        We have an effective learning strategy to get you up and running in no time without 
+                        the overhead of installing tools just yet. 
+                        </p>
+                        <br>
+                        <p>We utilize MOOC resources from Khan Academy, Free Code Camp, Coursera, EDx, etc. We 
+                        help you set up, and let you study at your pace whilst on hand to guide you through 
+                        coding challenges at a moment's notice. And yes, for the awesome work they do, we love to donate 
+                        to Khan Academy and other open source projects we use.
+                        </p>
+                        <div id="clock-div">
+                            <i class="clock" nz-icon nzType="clock-circle" nzTheme="outline"></i>&nbsp;<strong>Approx. 30 minutes</strong>
+                            <!--<i class="clock" nz-icon nzType="clock-circle" nzTheme="fill"></i>&nbsp;<strong>Approx. 30 minutes</strong>-->
+                        </div>
+                    </nz-card>
+                </div>
+
+                <div nz-col nzXs="24" nzMd="12">
+                    <nz-card nzTitle="Study Review" class="grid-config">
+                        <p>Are you a newbie who has put in the work already, but gets stuck on course work
+                        every now and then? We love self motivated learners as well, we'd be excited to review what 
+                        you've done so far, unblock you, and advise on the best ways forward. So yes, we can meet 
+                        halfway.
+                        </p>
+                        <div id="clock-div">
+                        <i class="clock" nz-icon nzType="clock-circle" nzTheme="outline"></i>&nbsp;<strong>Approx. 30 minutes</strong>
+                        <!--<i class="clock" nz-icon nzType="clock-circle" nzTheme="fill"></i>&nbsp;<strong>Approx. 30 minutes</strong>-->
+                        </div>
+                    </nz-card>
+                </div>
+                
+                <div nz-col nzXs="24" nzMd="12">
+                    <nz-card nzTitle="Coaching" class="grid-config">
+                        <p>Learning to code or build software comes with lots of highs and lows. You'd barely
+                        bask in the highs when another low sets in, and lows can be depressing when you've 
+                        been trying to solve a problem for days, it's called a blocker.</p>
+                        <br>
+                        <p>There's a general consensus that blockers should not exceed 30 minutes
+                        without looking for help. From experience, eliminating blockers makes up for
+                        the bulk of our sessions with our mentees. Wouldn't you rather have a mentor to
+                        turn to when the going gets tough? 
+                        </p>
+                        <div id="clock-div">
+                        <i class="clock" nz-icon nzType="clock-circle" nzTheme="outline"></i>&nbsp;<strong>Approx. 30 minutes</strong>
+                        <!--<i class="clock" nz-icon nzType="clock-circle" nzTheme="fill"></i>&nbsp;<strong>Approx. 30 minutes</strong>-->
+                        </div>
+                    </nz-card>
+                </div>
+
+                <div nz-col nzXs="24" nzMd="12">
+                    <nz-card nzTitle="Career Path" class="grid-config">
+                        <p>Mentees are bombarded by a plethora of tech jargons the sooner they start learning. 
+                        Should i specialize in web or mobile? Frontend, backend, or full stack? Python or JavaScript?
+                        I am learning CSS, but i hear CSS3 is the latest one. Cloud or data science?
+                        </p>
+                        <br>
+                        <p>Considering the vastness of technology, these and a lot more are some of the questions you will
+                        need answered in order to make career decisions. We totally expect these questions, and are more 
+                        than happy to help you find answers to a career path of your choosing.</p>
+                        <div id="clock-div">
+                        <i class="clock" nz-icon nzType="clock-circle" nzTheme="outline"></i>&nbsp;<strong>Approx. 30 minutes</strong>
+                        <!--<i class="clock" nz-icon nzType="clock-circle" nzTheme="fill"></i>&nbsp;<strong>Approx. 30 minutes</strong>-->
+                        </div>
+                    </nz-card>
+                </div>
+            </div>
+        </div>
+
+  
+        <!--<section id="newbie" class="top-margin">
+            <img alt="Animated typist gif" src="../assets/images/newbie.gif"/>
+        </section>-->
+  
+ 
+
+        <!-- Terminal 
+        <div class="terminal" [ngSwitch]="selection.value">
+            <pre *ngSwitchDefault>ng generate component xyz</pre>
+            <pre *ngSwitchCase="'material'">ng add @angular/material</pre>
+            <pre *ngSwitchCase="'pwa'">ng add @angular/pwa</pre>
+            <pre *ngSwitchCase="'dependency'">ng add _____</pre>
+            <pre *ngSwitchCase="'test'">ng test</pre>
+            <pre *ngSwitchCase="'build'">ng build</pre>
+        </div>-->
+
+  
+
+   
+
+        <!-- Footer -->
+        <footer>
+            
+        </footer>
+
+
+</div>

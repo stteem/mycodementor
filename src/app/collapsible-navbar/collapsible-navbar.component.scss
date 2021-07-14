@@ -1,11 +1,12 @@
 #nzcollapse {
+    //position: fixed;
     margin-bottom: 0 !important;
-    color: wheat;
+    color: rgb(228, 255, 248);
     background: linear-gradient(270deg, #1bbd94, #023024);
 }
 
 .nav-item .nav-link {
-    color: wheat;
+    color: rgb(228, 255, 248);
     font-weight: 500;
 }
 
@@ -14,5 +15,20 @@
 }*/
 
 .collapse ul li {
-    border-bottom: 1px solid wheat;
+    border-bottom: 1px solid rgb(228, 255, 248);
+}
+
+#div-logo {
+    display: flex !important;
+    align-items: flex-end;
+}
+
+#logo {
+    width: 40%;
+}
+
+#div-logo button {
+    color: rgb(228, 255, 248); 
+    border-color: rgb(228, 255, 248);
+    height: 40px;
 }
