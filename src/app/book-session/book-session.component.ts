@@ -14,4 +14,18 @@ export class BookSessionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /*isCalendlyEvent(e: any) {
+    return e.data.event &&
+           e.data.event.indexOf('calendly') === 0;
+  };
+   
+  window.addEventListener(
+    'message',
+    (e) {
+      if (isCalendlyEvent(e)) {
+        console.log(e.data);
+      }
+    }
+  );*/
+
 }

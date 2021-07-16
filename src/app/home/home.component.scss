@@ -106,13 +106,19 @@
   .nzbutton-1 {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 30px;
     z-index: 1000;
   }
-  .nzbutton-1 [nz-button] {
-    background-color: #7ed957;
-    border-color: #7ed957;
-    color: #fff;
+  .nzbutton-1 #get-started {
+    background-color: rgb(228, 255, 248);
+    border-color: rgb(228, 255, 248);
+    //font-weight: 500;
+    //color: #fff;
+  }
+  
+  .nzbutton-1 #learn-more {
+    color: rgb(228, 255, 248);
+    //font-weight: bold;
   }
 
   .nzbutton {
@@ -126,6 +132,19 @@
     background-color: #0A264B;
     border-color: #0A264B;
     color: #fff;
+  }
+
+  .nzbutton-3 {
+    margin-top: 80px;
+    margin-bottom: 150px;
+  }
+  /*.nzbutton-3 #get-started-2 {
+    background-color: #0A264B;
+    border-color: #0A264B;
+    color: rgb(228, 255, 248);
+  }*/
+  .nzbutton-3 #back-to-top {
+    color: rgb(228, 255, 248);
   }
 
   .logo-div {
@@ -367,6 +386,7 @@
   #newbie img {
     width: 100%;
   }
+
 
   @media screen and (max-width: 975px){
 

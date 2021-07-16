@@ -26,9 +26,15 @@
         <div id="msg2">Your Learning Curve Is About To Get Straightened</div>
         <div id="msg3">A mentor helps you learn faster, and 
           gets you on the right path to becoming employable in the tech industry.</div>
-          <div class="nzbutton-1">
-            <a href="#circle" nz-button [nzSize]="size" nzShape="round" nzIcon="arrow-down">Learn More
-              <i nz-icon nzType="arrow-down" nzTheme="outline"></i>
+          <div id="get-started-div" class="nzbutton-1">
+            <a id="get-started" routerLink="'.'" nz-button [nzSize]="size" nzShape="round" nzType="default">
+                Get Started
+             <i nz-icon nzType="arrow-right" nzTheme="outline"></i>
+           </a>
+            <a id="learn-more" href="./#circle"
+                onclick="event.preventDefault(); location.hash='circle';" 
+                nz-button [nzSize]="size" nzShape="round" nzType="text">Learn More
+                <i nz-icon nzType="arrow-down" nzTheme="outline"></i>
             </a>
           </div>
       </div>
@@ -60,7 +66,9 @@
                 Mentorship helps you cut to the chase, and level up.
             </p>
             <div class="nzbutton">
-                <a href="#mentorship" nz-button [nzSize]="size" nzShape="round" nzIcon="arrow-down">Learn More
+                <a href="./#mentorship" 
+                onclick="event.preventDefault(); location.hash='mentorship';"
+                nz-button [nzSize]="size" nzShape="round">Learn More
                 <i nz-icon nzType="arrow-down" nzTheme="outline"></i>
                 </a>
             </div>
@@ -79,7 +87,9 @@
                 to start applying for jobs.
             </p>
             <div class="nzbutton">
-                <a href="#our-services" nz-button [nzSize]="size" nzShape="round" nzIcon="arrow-down">Learn More
+                <a href="./#our-services"
+                onclick="event.preventDefault(); location.hash='our-services';"
+                 nz-button [nzSize]="size" nzShape="round">Learn More
                 <i nz-icon nzType="arrow-down" nzTheme="outline"></i>
                 </a>
             </div>
@@ -177,7 +187,17 @@
                 </div>
             </div>
         </div>
-
+        <div class="nzbutton-3">
+            <a id="get-started-2" routerLink="'.'"
+             nz-button [nzSize]="size" nzShape="round" nzType="default">Get Started
+            <i nz-icon nzType="arrow-right" nzTheme="outline"></i>
+            </a>
+            <a id="back-to-top" href="./#inner-banner"
+                onclick="event.preventDefault(); location.hash='inner-banner';" 
+                nz-button [nzSize]="size" nzShape="round" nzType="text">Back to top
+                <i nz-icon nzType="arrow-up" nzTheme="outline"></i>
+            </a>
+        </div>
   
         <!--<section id="newbie" class="top-margin">
             <img alt="Animated typist gif" src="../assets/images/newbie.gif"/>
