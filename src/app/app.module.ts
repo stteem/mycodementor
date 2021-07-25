@@ -9,7 +9,7 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -29,10 +29,18 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzListModule } from 'ng-zorro-antd/list';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+
+
 
 import { BookSessionComponent } from './book-session/book-session.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
+//import { LoginComponent } from './login/login.component';
+import { LoginModule } from './login/login.module';
+import { ShowloginComponent } from './showlogin/showlogin.component';
 
 
 
@@ -51,7 +59,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     CollapsibleNavbarComponent,
     BookSessionComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    ShowloginComponent
   ],
   imports: [
     BrowserModule,
@@ -63,8 +72,10 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
       registrationStrategy: 'registerWhenStable:30000'
     }),
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    LoginModule,
     FlexLayoutModule,
     NzButtonModule,
     NzAnchorModule,
@@ -74,7 +85,10 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     NzCardModule,
     NzGridModule,
     NzIconModule,
-    NzListModule
+    NzListModule,
+    NzFormModule,
+    NzInputModule,
+    NzCheckboxModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }, { provide: NZ_ICONS, useValue: icons }],
   bootstrap: [AppComponent]
