@@ -1,39 +1,43 @@
+<app-collapsible-navbar></app-collapsible-navbar>
+<div class="logo-div">
+    <div class="container">
+        <div class="navbar-div">
+            <img id="logo" alt="mcm logo" src="../assets/images/mcm-logo.png"/>
+            <app-navbar></app-navbar>
+        </div>
+    </div>
+</div> 
+
 <div class="container">
+  <div id="login-div">
     <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
       <nz-form-item>
-        <nz-form-control nzErrorTip="Please input your email!">
+        <nz-form-control nzHasFeedback [nzErrorTip]="emailErrorTpl">
           <nz-input-group nzPrefixIcon="mail">
             <input type="email" nz-input formControlName="email" placeholder="Email" />
+            <ng-template #emailErrorTpl let-control>
+              <ng-container *ngIf="control.hasError('email')">Input is not valid E-mail!</ng-container>
+              <ng-container *ngIf="control.hasError('required')">Please input your E-mail!</ng-container>
+            </ng-template>
           </nz-input-group>
-          <ng-template #emailErrorTpl let-control>
-            <ng-container *ngIf="control.hasError('email')">The input is not valid E-mail!</ng-container>
-            <ng-container *ngIf="control.hasError('required')">Please input your E-mail!</ng-container>
-          </ng-template>
         </nz-form-control>
       </nz-form-item>
-
       <nz-form-item>
         <nz-form-control nzErrorTip="Please input your Password!">
-          <nz-input-group nzPrefixIcon="lock">
-            <input type="password" nz-input formControlName="password" placeholder="Password" />
-          </nz-input-group>
+        <nz-input-group nzPrefixIcon="lock" [nzSuffix]="suffixTemplate">
+          <input
+            [type]="passwordVisible ? 'text' : 'password'"
+            nz-input
+            placeholder="input password"
+            formControlName="password"
+            autocomplete="current-password"
+          />
+        </nz-input-group>
+        <ng-template #suffixTemplate>
+          <i nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'" (click)="passwordVisible = !passwordVisible"></i>
+        </ng-template>
         </nz-form-control>
       </nz-form-item>
-
-      <nz-form-item>
-        <nz-input-group nzPrefixIcon="lock" [nzSuffix]="suffixTemplate">
-            <input
-              [type]="passwordVisible ? 'text' : 'password'"
-              nz-input
-              placeholder="input password"
-              [(ngModel)]="password"
-            />
-          </nz-input-group>
-          <ng-template #suffixTemplate>
-            <i nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'" (click)="passwordVisible = !passwordVisible"></i>
-          </ng-template>
-      </nz-form-item>
-
       <div nz-row class="login-form-margin">
         <div nz-col [nzSpan]="12">
           <label nz-checkbox formControlName="remember">
@@ -45,9 +49,10 @@
         </div>
       </div>
       <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button>
-      Or <a>register now! </a>
+      Or
+      <a>register now!</a>
     </form>
-
+  </div>
     <!--<form nz-form class="login-form">
         <nz-form-item>
           <nz-form-label [nzSpan]="6" nzFor="email">E-mail</nz-form-label>

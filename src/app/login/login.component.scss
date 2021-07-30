@@ -19,11 +19,33 @@
     cursor: pointer;
   }
 
-  ///
-  /*[nz-form] {
-    max-width: 600px;
+  #login-div {
+    display: flex;
+    align-items: center;
   }
 
-  button {
-    margin-left: 8px;
-  }*/
+  ///
+.logo-div {
+  color: rgb(228, 255, 248);
+  background: linear-gradient(270deg, #1bbd94, #023024);
+}
+.logo-div img {
+    width: 15%;
+    height: 15%;
+}
+@media screen and (max-width: 768px) {
+    .logo-div {
+        display: none;
+    }
+}
+@media screen and (min-width: 500px) {
+    app-collapsible-navbar {
+      display: none;
+    }
+}
+.navbar-div {
+    display: flex;
+    align-items: flex-end;
+    min-height: 80px;
+    //background-color: aqua;
+}

@@ -14,13 +14,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+//import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzAnchorModule } from 'ng-zorro-antd/anchor';
 
 import { NZ_ICONS } from 'ng-zorro-antd/icon';
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
-import { NavbarComponent } from './navbar/navbar.component';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { CollapsibleNavbarComponent } from './collapsible-navbar/collapsible-navbar.component';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
@@ -34,13 +34,11 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 
 
-
+import { NavbarComponent } from './navbar/navbar.component';
 import { BookSessionComponent } from './book-session/book-session.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
-//import { LoginComponent } from './login/login.component';
-import { LoginModule } from './login/login.module';
-import { ShowloginComponent } from './showlogin/showlogin.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -60,7 +58,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     BookSessionComponent,
     HomeComponent,
     FooterComponent,
-    ShowloginComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +73,6 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    LoginModule,
     FlexLayoutModule,
     NzButtonModule,
     NzAnchorModule,

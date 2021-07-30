@@ -3,8 +3,8 @@
     background: transparent;
     color: rgb(228, 255, 248);
     font-size: 1em;
-    border-bottom: none;
-    width: 85%;
+    border-bottom: none !important;
+    width: 95%;
     //background-color: brown;
 }
 
@@ -16,7 +16,11 @@
 
 [nz-menu] :hover {
     color:#7ed957;
-    border-bottom: 2px solid #7ed957;
+    //border-bottom: 2px solid #7ed957;
+}
+
+.ant-menu-item a :hover {
+    border-bottom: 2px solid #7ed957 !important;
 }
 
 /* On hover changes color of all list items. 
@@ -37,7 +41,7 @@ Required behaviour should chage color per item hovered
 
 .ant-menu-item-selected {
     color: #7ed957 !important;
-    border-bottom: 2px solid #7ed957 !important;
+    //border-bottom: 2px solid #7ed957 !important;
 
 }
 
@@ -47,11 +51,11 @@ Required behaviour should chage color per item hovered
 }
 
 [nz-menu] li a {
-    text-decoration: none;
-    border-bottom: none;
+    text-decoration: none !important;
+    border-bottom: none !important;
     color: rgb(228, 255, 248);
 }
 
-[nz-menu] li a :hover {
+/*[nz-menu] li a :hover {
     color: #7ed957 !important;
-}
+}*/

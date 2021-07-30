@@ -16,6 +16,17 @@ export class LoginComponent implements OnInit {
   passwordVisible = false;
   password?: string;
 
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.validateForm = this.fb.group({
+      userName: [null, [Validators.required]],
+      email: [null, [Validators.email, Validators.required]],
+      password: [null, [Validators.required]],
+      remember: [true]
+    });
+  }
+
   submitForm(): void {
     for (const i in this.validateForm.controls) {
       if (this.validateForm.controls.hasOwnProperty(i)) {
@@ -23,17 +34,6 @@ export class LoginComponent implements OnInit {
         this.validateForm.controls[i].updateValueAndValidity();
       }
     }
-  }
-
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit(): void {
-    this.validateForm = this.fb.group({
-      userName: [null, [Validators.required]],
-      email: ['', [Validators.email, Validators.required]],
-      password: [null, [Validators.required]],
-      remember: [true]
-    });
   }
 
   /*submitForm(value: { userName: string; email: string; password: string; confirm: string; comment: string }): void {
