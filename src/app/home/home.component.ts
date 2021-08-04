@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NzButtonSize } from 'ng-zorro-antd/button';
+//import { forkJoin } from 'rxjs';
+import { AuthenticationService } from '../services/auth.service';
+
 
 @Component({
   selector: 'app-home',
@@ -9,9 +12,11 @@ import { NzButtonSize } from 'ng-zorro-antd/button';
 export class HomeComponent implements OnInit {
   size: NzButtonSize = 'large';
 
-  constructor() { }
+  constructor(private authservice: AuthenticationService) {}
 
   ngOnInit(): void {
+    console.log('load cred from home')
+    this.authservice.loadUserCredentials();
   }
 
 }

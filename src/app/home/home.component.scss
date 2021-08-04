@@ -10,7 +10,7 @@
 
 .banner {
     position: relative;
-    background-color: #0A264B;
+    background-color: #7ed957;
 }
 #dough-div {
     position: absolute;
@@ -28,7 +28,9 @@
   width: 100%;
   min-height: 750px;
   border-radius: 0 0 200px 0;
-  background-color: #023024;
+  //background-color: #023024;
+  background: linear-gradient(270deg, #1bbd94, #023024);
+
   /*background: linear-gradient(270deg, #1bbd94, #023024);
   background-size: 400% 400%;
 

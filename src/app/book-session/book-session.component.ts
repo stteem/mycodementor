@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NzButtonSize } from 'ng-zorro-antd/button';
+import { AuthenticationService } from '../services/auth.service';
 
 @Component({
   selector: 'app-book-session',
@@ -9,9 +10,11 @@ import { NzButtonSize } from 'ng-zorro-antd/button';
 export class BookSessionComponent implements OnInit {
   size: NzButtonSize = 'large';
 
-  constructor() { }
+  constructor(private authservice: AuthenticationService) { }
 
   ngOnInit(): void {
+    console.log('load cred from book session')
+    this.authservice.loadUserCredentials();
   }
 
   /*isCalendlyEvent(e: any) {

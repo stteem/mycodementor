@@ -1,10 +1,37 @@
+.nav-bar {
+    background: linear-gradient(270deg, #1bbd94, #023024);
+}
+.nav-bar img {
+    width: 15%;
+    height: 15%;
+}
+.navbar-div {
+    display: flex;
+    align-items: flex-end;
+    min-height: 80px;
+    //background-color: aqua;
+}
+
+#sign-in { 
+    float: right; 
+    //background-color: turquoise;
+}
+#sign-up { 
+    float: right; 
+    //background-color: turquoise;
+}
+#sign-out { 
+    float: right; 
+    //background-color: turquoise;
+}
+
 [nz-menu] {
     margin-left: 100px;
     background: transparent;
     color: rgb(228, 255, 248);
     font-size: 1em;
     border-bottom: none !important;
-    width: 95%;
+    width: 100%;
     //background-color: brown;
 }
 
@@ -55,7 +82,10 @@ Required behaviour should chage color per item hovered
     border-bottom: none !important;
     color: rgb(228, 255, 248);
 }
-
+[nz-menu-item] {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
 /*[nz-menu] li a :hover {
     color: #7ed957 !important;
 }*/

@@ -1,23 +1,42 @@
-<ul nz-menu nzMode="horizontal" role="navigation">
-    <li nz-menu-item>
-      <a routerLink="/home" routerLinkActive="active">Home</a>
-    </li>
-    <li nz-menu-item>
-      <a routerLink="'.'" routerLinkActive="active">Pricing</a>
-    </li>
-    <li nz-menu-item>
-      <a routerLink="/booksession" routerLinkActive="active">Book a Session</a>
-    </li>
-    <li nz-menu-item>
-      <a routerLink="'.'" routerLinkActive="active">Sign Up</a>
-    </li>
-    <li nz-menu-item>
-      <a routerLink="/login" routerLinkActive="active">Sign In</a>
-    </li>
-    <!--<li nz-submenu nzTitle="Account" nzIcon="caret-down">
-      <ul>
-        <li nz-menu-item><a routerLink="'.'" routerLinkActive="active">Dashboard</a></li>
-        <li nz-menu-item><a routerLink="/login" routerLinkActive="active">Sign in</a></li>
-      </ul>
-    </li>-->
-</ul>
+
+<div class="nav-bar">
+  <div class="container">
+      <div class="navbar-div">
+          <img id="logo" alt="mcm logo" src="../assets/images/mcm-logo.png"/>
+          <!--<app-navbar></app-navbar>-->
+          <ul nz-menu nzMode="horizontal" role="navigation">
+            <li nz-menu-item>
+              <a routerLink="/home" routerLinkActive="active">Home</a>
+            </li>
+            <li nz-menu-item>
+              <a routerLink="'.'" routerLinkActive="active">Subscription</a>
+            </li>
+            <li nz-menu-item>
+              <a routerLink="/booksession" routerLinkActive="active">Book a Session</a>
+            </li>
+            <div id="sign-up">
+              <li nz-menu-item *ngIf="loggedIn == false" >
+                <a routerLink="/signup" routerLinkActive="active">Sign Up</a>
+              </li>
+            </div>
+            <div id="sign-in">
+              <li nz-menu-item *ngIf="loggedIn == false">
+                <a routerLink="/login" routerLinkActive="active">Sign In</a>
+              </li>
+            </div>
+            <div id="sign-out">
+              <li nz-menu-item>
+                <button nz-button *ngIf="loggedIn == true"  (click)="signOut()" >Sign out</button>
+              </li>
+            </div>
+            
+            <!--<li nz-submenu nzTitle="Account" nzIcon="caret-down">
+              <ul>
+                <li nz-menu-item><a routerLink="'.'" routerLinkActive="active">Dashboard</a></li>
+                <li nz-menu-item><a routerLink="/login" routerLinkActive="active">Sign in</a></li>
+              </ul>
+            </li>-->
+        </ul>
+      </div>
+  </div>
+</div> 

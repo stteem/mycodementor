@@ -1,0 +1,40 @@
+[nz-form] {
+  width: 100%;
+  margin: 0;
+}
+
+#already-signed-up {
+  width: 100%;
+}
+
+  button {
+    margin-left: 8px;
+  }
+
+.signup-div {
+    margin-top: 100px;
+    //width: 100% !important;
+    //background-color: aqua;
+}
+
+
+  @media screen and (min-width: 500px) {
+      app-collapsible-navbar {
+        display: none;
+      }
+  }
+
+  @media screen and (min-width: 600px) {
+    [nz-form] {
+      width: 600px;
+    }
+    #already-signed-up {
+      width: 600px;
+    }
+  }
+  .navbar-div {
+      display: flex;
+      align-items: flex-end;
+      min-height: 80px;
+      //background-color: aqua;
+  }

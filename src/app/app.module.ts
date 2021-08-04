@@ -39,6 +39,12 @@ import { BookSessionComponent } from './book-session/book-session.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+
+import { SignupService } from './services/signup.service';
+import { AuthenticationService } from './services/auth.service';
+import { AuthInterceptor, UnauthorizedInterceptor } from './services/auth.interceptor';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
 
 
@@ -58,7 +64,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     BookSessionComponent,
     HomeComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +94,22 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     NzInputModule,
     NzCheckboxModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }, { provide: NZ_ICONS, useValue: icons }],
+  providers: [
+    SignupService,
+    AuthenticationService,
+    { provide: NZ_I18N, useValue: en_US },
+    { provide: NZ_ICONS, useValue: icons },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UnauthorizedInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
