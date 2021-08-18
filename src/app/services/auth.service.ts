@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { of, Observable, Subject } from 'rxjs';
+import { of, Observable, Subject, BehaviorSubject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 import { baseURL } from '../shared/baseurl';
 import { ProcessHttpmsgService } from './process-httpmsg.service';
+import { User, UserData } from '../state/login/user.model';
+import { Store } from '@ngrx/store';
+import { logginSuccess } from '../state/login/login.action';
 
 
 interface AuthResponse {
   firstname: string;
   token: string;
+  subscription: object;
+  isSubscribed: boolean;
 }
 
 interface JWTResponse {
@@ -31,12 +36,13 @@ export class AuthenticationService {
 
   tokenKey = 'JWT';
   username: Subject<string> = new Subject<string>();
-  logged = new Subject<boolean>();
+  logged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false); //Subject<boolean> = new Subject<boolean>();
   authToken: string | undefined;
 
   constructor(private http: HttpClient,
     private processHTTPMsgService: ProcessHttpmsgService,
-    private router: Router) { }
+    private router: Router,
+    private store: Store) { }
 
   
 
@@ -67,12 +73,10 @@ export class AuthenticationService {
     this.logged.next(true);
     this.sendUsername(credentials.username);
     this.authToken = credentials.token;
-    console.log('auth token ',this.authToken)
   }
 
   
   loadUserCredentials() {
-    console.log('load cred called')
     const credentials = localStorage.getItem(this.tokenKey);
     if (credentials !== null) {
       this.useCredentials(JSON.parse(credentials));
@@ -86,14 +90,32 @@ export class AuthenticationService {
     console.log('storeUserCredentials ', credentials);
     localStorage.setItem(this.tokenKey, JSON.stringify(credentials));
     this.useCredentials(credentials);
+    
+    const user : UserData = {
+      username: credentials.username, 
+      token: credentials.token, 
+      loggedin: true,
+      subscription: credentials.subscription,
+      isSubscribed: credentials.isSubscribed
+    }
+    this.store.dispatch(logginSuccess({user}));
   }
 
-  logIn(user: any): Observable<any> {
+  logIn(user: User): Observable<any> {
     return this.http.post<AuthResponse>(baseURL + 'user/login', user)
       .pipe( map(res => {
         console.log('pipe res ',res);
-          this.storeUserCredentials({username: res.firstname, token: res.token});
-          return {'success': true, 'username': res.firstname };
+          this.storeUserCredentials({
+            username: res.firstname, 
+            token: res.token, 
+            subscription: res.subscription,
+            isSubscribed: res.isSubscribed
+          });
+          return {
+            'success': true, 
+            'username': res.firstname, 
+            'isSubscribed': res.isSubscribed
+          };
       }),
        /*catchError(error => {
         console.error("error caught", error);

@@ -1,0 +1,56 @@
+.plans {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center !important;
+    margin-top: 100px;
+}
+
+@media screen and (min-width: 700px){
+    .plans {
+        justify-content: left !important;
+    }
+}
+
+nz-card {
+    min-height: 400px;
+    
+}
+
+#free {
+    background-color: rgb(133, 236, 197);
+}
+#monthly {
+    background-color: rgb(72, 194, 147);
+}
+#six-months {
+    background-color: rgb(22, 209, 137);
+}
+
+// Badge
+
+nz-badge {
+    margin-right: 20px;
+  }
+
+  nz-badge.ant-badge-rtl {
+    margin-right: 0;
+    margin-left: 20px;
+  }
+
+  .head-example {
+    width: 42px;
+    height: 42px;
+    border-radius: 4px;
+    background: #eee;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  nz-card {
+      position: relative;
+  }
+
+  .pay-btn  {
+      position: absolute;
+      bottom: 20px;
+  }

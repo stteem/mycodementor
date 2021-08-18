@@ -43,11 +43,7 @@
         display: none;
     }
 }
-@media screen and (min-width: 500px) {
-    app-collapsible-navbar {
-      display: none;
-    }
-}
+
 .navbar-div {
     display: flex;
     align-items: flex-end;

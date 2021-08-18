@@ -1,10 +1,10 @@
-<app-collapsible-navbar></app-collapsible-navbar>
-
 <div class="container">
   <h3 style="margin-top: 50px;">Login</h3>
   <hr>
-    <form nz-form [formGroup]="validateForm" class="login-form" #loginForm="ngForm" (ngSubmit)="submitForm()">
-      <div style="color: tomato; font-size: 12px;">{{loginErrMess}}</div>
+    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+    <nz-spin [nzSize]="'small'" [nzSpinning]="isSpinning" [nzDelay]="200">
+      <div style="color: tomato; font-size: 12px; height: 50px;">{{loginErrMess}}</div>
+    
       <nz-form-item>
         <nz-form-control nzHasFeedback [nzErrorTip]="emailErrorTpl">
           <nz-input-group nzPrefixIcon="mail">
@@ -13,7 +13,6 @@
               formControlName="email" 
               placeholder="Email" 
               autocomplete="email"
-              [(ngModel)]="user.email"
             />
             <ng-template #emailErrorTpl let-control>
               <ng-container *ngIf="control.hasError('email')">Input is not valid E-mail!</ng-container>
@@ -31,7 +30,6 @@
             placeholder="input password"
             formControlName="password"
             autocomplete="current-password"
-            [(ngModel)]="user.password"
           />
           <ng-template #passwordErrorTpl let-control>
             <ng-container *ngIf="control.hasError('minlength')">Password must be at least 8 characters long!</ng-container>
@@ -56,6 +54,6 @@
       <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button>
       Or
       <a routerLink="/signup">register now!</a>
+    </nz-spin>
     </form>
-   
 </div>

@@ -15,7 +15,6 @@ export class HomeComponent implements OnInit {
   constructor(private authservice: AuthenticationService) {}
 
   ngOnInit(): void {
-    console.log('load cred from home')
     this.authservice.loadUserCredentials();
   }
 

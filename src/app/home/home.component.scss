@@ -160,11 +160,6 @@
     height: 20%;
   }
 
-  @media screen and (max-width: 768px) {
-    .logo-div, .logo-div img, app-navbar {
-        display: none;
-    }
-  }
 
   @media screen and (min-width: 775px) {
     .banner {
@@ -215,12 +210,6 @@
 
   .top-margin-4 {
     margin-top: 200px;
-  }
-
-  @media screen and (min-width: 500px) {
-    app-collapsible-navbar {
-      display: none;
-    }
   }
 
   #graphic1{

@@ -5,7 +5,7 @@ import { SignupService } from '../services/signup.service';
 //import { Signup } from '../shared/signup';
 import { Router, NavigationEnd } from '@angular/router';
 import { Location } from '@angular/common';
-
+import { AuthenticationService } from '../services/auth.service';
 
 
 
@@ -20,6 +20,8 @@ export class SignupComponent implements OnInit {
   signUpErrMess: string =  '';
 
   ngOnInit(): void {
+    console.log('load cred from sign up')
+      this.authservice.loadUserCredentials();
   }
 
   emailAsyncValidator = (control: FormControl) =>
@@ -51,9 +53,10 @@ export class SignupComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private signupservice: SignupService,
     private router: Router,
-    private location: Location
+    private location: Location,
+    private authservice: AuthenticationService
     ) {
-    this.validateForm = this.fb.group({
+      this.validateForm = this.fb.group({
       firstname: ['', [Validators.required]],
       lastname: ['', [Validators.required]],
       email: ['', [Validators.email, Validators.required], [this.emailAsyncValidator]],

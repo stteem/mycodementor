@@ -16,12 +16,11 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
 
     this.authservice.loggedIn()
-      .subscribe({
-        next: res => {
-          console.log('res ',res)
-          this.loggedIn = res;
-        }
-      })
+    .subscribe({
+      next: res => {
+        this.loggedIn = res;
+      }
+    })
     
   }
 

@@ -1,0 +1,151 @@
+<div style="margin-top: 80px;" class="container" 
+*ngIf="(subscription_plan?.plan == 'free' ||
+subscription_plan?.plan == 'monthly' ||
+subscription_plan?.plan == 'six months'); else showSkeleton">
+    <h3>Current Subscription</h3>
+    <p>You are on {{subscription_plan?.plan}} plan</p>
+    <p>You are eligible for {{subscription_plan?.session_per_month}} session per month</p>
+    <p>You may upgrade or downgrade your subscription plan below.</p>
+    <hr>
+</div>
+<div *ngIf="subErrMess" style="margin-top: 80px;" class="container">
+    <p>{{subErrMess}}</p>
+</div>
+<div *ngIf="message" style="margin-top: 80px;" class="container">
+    <h3>Current Subscription</h3>
+    <p>{{message}}</p>
+</div>
+<ng-template #showSkeleton>
+    <nz-skeleton [hidden]="subErrMess || notLogged || message" style="margin-top: 80px;" class="container" [nzActive]="true"></nz-skeleton>
+</ng-template>
+
+<div class="container">
+    <h3 style="margin-top: 100px; margin-bottom: 50px;">Subscription Plans</h3>
+    <div class="plans" nz-row [nzGutter]="[16, 16]">
+        <div nz-col nzXs="20" nzMd="6">
+            <nz-card id="free" nzTitle="Free" class="grid-config"> 
+                <h3 [ngStyle]="{ 'margin-bottom.px': 16 }">$0</h3>
+                <nz-list>
+                    <nz-list-item>
+                      2 sessions per month
+                    </nz-list-item>
+                    <nz-list-item>
+                        Up to 30 minutes per session
+                      </nz-list-item>
+                      <nz-list-item>
+                    </nz-list-item>
+                  </nz-list>
+                  <nz-list-footer class="pay-btn">
+                    <button [hidden]="subscription_plan?.plan === 'free'" nz-button (click)="post_Subscription('free', 0)">Redeem Now</button>
+                  </nz-list-footer>
+            </nz-card>
+        </div>
+        <div nz-col nzXs="20" nzMd="6">
+            <nz-card id="monthly" nzTitle="Monthly" class="grid-config">
+                <h3 [ngStyle]="{ 'margin-bottom.px': 16 }">$50</h3>
+                <nz-list>
+                    <nz-list-item>
+                        Up to 5 sessions per month
+                    </nz-list-item>
+                    <nz-list-item>
+                        Up to 40 minutes per session
+                      </nz-list-item>
+                      <nz-list-item>
+                    </nz-list-item>
+                  </nz-list>
+                  <nz-list-footer class="pay-btn">
+                    <button nz-button disabled (click)="post_Subscription('monthly', 50)">Coming soon</button>
+                  </nz-list-footer>
+            </nz-card>
+        </div>
+
+        <div nz-col nzXs="20" nzMd="6">
+            <nz-card id="six-months" nzTitle="6 Months (Recommended)" class="grid-config">
+                <h3 [ngStyle]="{ 'margin-bottom.px': 16 }">$250</h3>
+                <nz-list>
+                    <nz-list-item>
+                        Up to 8 sessions per month
+                    </nz-list-item>
+                    <nz-list-item>
+                        Up to 40 minutes per session
+                      </nz-list-item>
+                      <nz-list-item>
+                      </nz-list-item>
+                  </nz-list>
+                  <nz-list-footer class="pay-btn">
+                    <button nz-button disabled (click)="post_Subscription('six months', 250)">Coming soon</button>
+              </nz-list-footer>
+            </nz-card>
+        </div> 
+        <div nz-col nzXs="20" nzMd="6">
+            <nz-card id="six-months" nzTitle="Enterprise (For Teams)" class="grid-config">
+                <h5 [ngStyle]="{ 'margin-bottom.px': 16 }">Contact For Price</h5>
+                <nz-list>
+                    <nz-list-item>
+                        Unlimited sessions per month
+                    </nz-list-item>
+                    <nz-list-item>
+                        Up to 40 minutes per session
+                      </nz-list-item>
+                      <nz-list-item>
+                    </nz-list-item>
+                  </nz-list>
+                  <nz-list-footer class="pay-btn">
+                    <button nz-button (click)="open(content)">Contact Now</button>
+                </nz-list-footer>
+            </nz-card>
+            <ng-template #content let-modal>
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modal-basic-title">Enterprise Subscription Form</h5>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form nz-form [formGroup]="validateForm" autocomplete="on" (ngSubmit)="submitForm(validateForm.value)">
+                        <nz-form-item>
+                          <nz-form-label [nzSpan]="7" nzRequired>Company Name</nz-form-label>
+                          <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="companynameErrorTpl">
+                            <input nz-input formControlName="companyname" placeholder="Company Name" />
+                            <ng-template #companynameErrorTpl let-control>
+                              <ng-container *ngIf="control.hasError('required')">Please input your company name!</ng-container>
+                              
+                            </ng-template>
+                          </nz-form-control>
+                        </nz-form-item>
+                    
+                    
+                        <nz-form-item>
+                          <nz-form-label [nzSpan]="7" nzRequired>E-mail</nz-form-label>
+                          <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="emailErrorTpl">
+                            <input nz-input formControlName="email" placeholder="Email" type="email" />
+                            <ng-template #emailErrorTpl let-control>
+                              <ng-container *ngIf="control.hasError('email')">The input is not valid E-mail!</ng-container>
+                            </ng-template>
+                          </nz-form-control>
+                        </nz-form-item>
+                        
+                        <nz-form-item>
+                            <nz-form-label [nzSpan]="7" nzRequired>Comment</nz-form-label>
+                            <nz-form-control [nzSpan]="12" nzErrorTip="Please write something here!">
+                              <textarea formControlName="comment" nz-input rows="6" 
+                              placeholder="Tell us the number of employees to be mentored, and we will get back to you with a quotation."></textarea>
+                            </nz-form-control>
+                          </nz-form-item>
+                    
+                        <nz-form-item>
+                          <nz-form-control [nzOffset]="7" [nzSpan]="12">
+                            <button nz-button nzType="primary" [disabled]="!validateForm.valid">Submit</button>
+                            <button nz-button (click)="resetForm($event)">Reset</button>
+                          </nz-form-control>
+                        </nz-form-item>
+                      </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+              </ng-template>
+        </div> 
+    </div>
+</div>
+
+

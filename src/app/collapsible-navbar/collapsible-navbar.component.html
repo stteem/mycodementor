@@ -40,7 +40,7 @@
           <a class="nav-link" routerLink="/home" routerLinkActive="active" (click)="isMenuCollapsed = true">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="'.'" routerLinkActive="active" (click)="isMenuCollapsed = true">Pricing</a>
+          <a class="nav-link" routerLink="/subscription" routerLinkActive="active" (click)="isMenuCollapsed = true">Subsription</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/booksession" routerLinkActive="active" (click)="isMenuCollapsed = true">Book a Session</a>
@@ -51,9 +51,15 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="'.'" routerLinkActive="active" (click)="isMenuCollapsed = true">Blog</a>
         </li>-->
-        <li class="nav-item">
-            <a class="nav-link" routerLink="'.'" routerLinkActive="active" (click)="isMenuCollapsed = true">Sign in</a>
-          </li>
+        <li *ngIf="loggedIn == false"  class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active" (click)="isMenuCollapsed = true">Sign in</a>
+        </li>
+        <li *ngIf="loggedIn == false"  class="nav-item">
+          <a class="nav-link" routerLink="/signup" routerLinkActive="active" (click)="isMenuCollapsed = true">Sign up</a>
+        </li>
+        <li *ngIf="loggedIn == true"  class="nav-item">
+          <a class="nav-link" (click)="signOut()">Sign out</a>
+        </li>
       </ul>
     </div>
   </nav>
