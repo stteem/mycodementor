@@ -35,6 +35,7 @@ interface JWT {
 export class AuthenticationService {
 
   tokenKey = 'JWT';
+  isAuthenticated: Boolean = false;
   username: Subject<string> = new Subject<string>();
   logged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false); //Subject<boolean> = new Subject<boolean>();
   authToken: string | undefined;
@@ -70,6 +71,7 @@ export class AuthenticationService {
   }
 
   useCredentials(credentials: any) {
+    this.isAuthenticated = true;
     this.logged.next(true);
     this.sendUsername(credentials.username);
     this.authToken = credentials.token;
@@ -128,6 +130,7 @@ export class AuthenticationService {
   destroyUserCredentials() {
     this.authToken = undefined;
     this.clearUsername();
+    this.isAuthenticated = false;
     localStorage.removeItem(this.tokenKey);
     this.logged.next(false);
   }
@@ -139,6 +142,10 @@ export class AuthenticationService {
 
   loggedIn(): Observable<boolean> {
     return this.logged.asObservable();
+  }
+
+  isLoggedIn(): Boolean {
+    return this.isAuthenticated;
   }
 
   getUsername(): Observable<string> {

@@ -3,7 +3,7 @@ import { AppState } from "../app.state";
 import { UserData } from './user.model';
 
 
-const selectUser = (state: UserData) => state;
+const selectUser = (state: AppState) => state.appstate.user.user;
 
 
 export const selectUserData = createSelector(

@@ -4,14 +4,15 @@ import { BookSessionComponent } from './book-session/book-session.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
-
+import { AuthGuard } from './services/auth.guard';
+import { SignupGuard } from './services/signup.guard';
 
 
 export const routes: Routes = [
-    { path: 'booksession', component: BookSessionComponent},
+    { path: 'booksession', component: BookSessionComponent, canActivate: [AuthGuard]},
     { path: 'subscription', component: SubscriptionComponent},
-    { path: 'login', component: LoginComponent},
-    { path: 'signup', component: SignupComponent},
+    { path: 'login', component: LoginComponent, canActivate: [SignupGuard]},
+    { path: 'signup', component: SignupComponent, canActivate: [SignupGuard]},
     { path: 'home',  component: HomeComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
