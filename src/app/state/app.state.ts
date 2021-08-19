@@ -8,6 +8,9 @@ export interface AppState {
         },
         subscription: {
             subscription: Subscription;
+        },
+        message: {
+            message: string;
         }
     }
 }

@@ -3,9 +3,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, NavigationEnd } from '@angular/router';
 import { AuthenticationService } from '../services/auth.service';
 import { Location } from '@angular/common';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { loggin } from '../state/login/login.action';
 import { User } from '../state/login/user.model';
+import { selectMessage } from '../state/message/message.select'
+import { AppState } from '../state/app.state';
 
 @Component({
   selector: 'app-login',
@@ -25,19 +27,20 @@ export class LoginComponent implements OnInit {
   private history: string[] = [];
 
   isSpinning = false;
-
+  message?: string;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private location: Location,
     private authservice: AuthenticationService,
-    private store: Store) {
+    private store: Store<AppState>) {
       this.router.events.subscribe((event) => {
         if (event instanceof NavigationEnd) {
           this.history.push(event.urlAfterRedirects)
         }
       });
+      this.getMessage();
     }
 
   ngOnInit(): void {
@@ -49,6 +52,11 @@ export class LoginComponent implements OnInit {
     });
       console.log('load cred from login')
       this.authservice.loadUserCredentials();
+  }
+
+  getMessage() {
+    this.store.pipe(select(selectMessage))
+    .subscribe(res => this.message = res.message)
   }
 
   back(): void {

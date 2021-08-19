@@ -1,6 +1,7 @@
 <div class="container">
   <h3 style="margin-top: 50px;">Login</h3>
   <hr>
+  <p style="margin-top: 10px; color:tomato;">{{message}}</p>
     <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
     <nz-spin [nzSize]="'small'" [nzSpinning]="isSpinning" [nzDelay]="200">
       <div style="color: tomato; font-size: 12px; height: 50px;">{{loginErrMess}}</div>

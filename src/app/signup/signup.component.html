@@ -40,11 +40,12 @@
         <nz-form-item>
           <nz-form-label [nzSpan]="7" nzRequired>Password</nz-form-label>
           <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please input your password!">
-            <input nz-input type="password" autocomplete="new-password" id="password" formControlName="password" (ngModelChange)="validateConfirmPassword()" />
+            <input nz-input type="password" autocomplete="new-password" id="password" formControlName="password"  />
           </nz-form-control>
+          <!--(ngModelChange)="validateConfirmPassword()"-->
         </nz-form-item>
 
-        <nz-form-item>
+        <!--<nz-form-item>
           <nz-form-label [nzSpan]="7" nzRequired>Confirm Password</nz-form-label>
           <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="passwordErrorTpl">
             <input nz-input type="password" formControlName="confirm" placeholder="confirm your password" />
@@ -53,7 +54,7 @@
               <ng-container *ngIf="control.hasError('confirm')">Password is inconsistent!</ng-container>
             </ng-template>
           </nz-form-control>
-        </nz-form-item>
+        </nz-form-item>-->
 
         <nz-form-item>
           <nz-form-control [nzOffset]="7" [nzSpan]="12">

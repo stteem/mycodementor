@@ -61,7 +61,7 @@ export class SignupComponent implements OnInit {
       lastname: ['', [Validators.required]],
       email: ['', [Validators.email, Validators.required], [this.emailAsyncValidator]],
       password: ['', [Validators.required]],
-      confirm: ['', [this.confirmValidator]],
+      //confirm: ['', [this.confirmValidator]],
     });
   }
 
@@ -76,7 +76,7 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  validateConfirmPassword(): void {
+  /*validateConfirmPassword(): void {
     setTimeout(() => this.validateForm.controls.confirm.updateValueAndValidity());
   }
 
@@ -89,6 +89,7 @@ export class SignupComponent implements OnInit {
     }
     return {};
   };
+  */
 
   submitForm(value: any): void {
     for (const key in this.validateForm.controls) {
@@ -98,8 +99,8 @@ export class SignupComponent implements OnInit {
       }
     }
     
-    delete value.confirm;
-    console.log('delete confirm ',value);
+    //delete value.confirm;
+    //console.log('delete confirm ',value);
     this.signupservice.submitSignup(value)
     .subscribe({
       next: (res) => {

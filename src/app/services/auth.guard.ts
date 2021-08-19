@@ -6,6 +6,7 @@ import { Store, select } from '@ngrx/store';
 import { selectUserData} from '../state/login/user.select';
 import { selectSubscriptionData } from '../state/subscription/subscription.select';
 import { AppState } from '../state/app.state';
+import { sendMessage } from '../state/message/message.action';
 
 @Injectable({
   providedIn: 'root'
@@ -22,10 +23,14 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (!this.auth.isLoggedIn()) {
+      let message = 'You must sign in before you can book a session';
+      this.store.dispatch(sendMessage({message}))
       this.router.navigate(['login']);
       return false;
     }
     if (this.isSubscribed() === false && this.subscriptionObj() === 0) {
+      let message = 'You must subscribe to a plan before you can book a session';
+      this.store.dispatch(sendMessage({message}))
       this.router.navigate(['subscription']);
       return false;
     }
