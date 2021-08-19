@@ -205,7 +205,7 @@
   }
 
   .top-margin {
-    margin-top: 100px;
+    margin-top: 200px;
   }
 
   .top-margin-4 {
@@ -378,7 +378,6 @@
     width: 100%;
   }
 
-
   @media screen and (max-width: 975px){
 
     #our-services-header {
@@ -430,6 +429,23 @@
       margin: 0;
     }
 
+  }
+  #outsource {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-top: 200px;
+  }
+  #not-enough {
+    text-align: center;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 975px){
+    #not-enough {
+      width: 70%;
+      line-height: 2em;
+    }
   }
 
   
