@@ -10,7 +10,7 @@
 
 .banner {
     position: relative;
-    background-color: #7ed957;
+    background-color: #0A264B;
 }
 #dough-div {
     position: absolute;
@@ -26,7 +26,7 @@
   //display: flex;
   margin: 0;
   width: 100%;
-  min-height: 750px;
+  min-height: 550px;
   border-radius: 0 0 200px 0;
   //background-color: #023024;
   background: linear-gradient(270deg, #1bbd94, #023024);
@@ -163,7 +163,7 @@
 
   @media screen and (min-width: 775px) {
     .banner {
-      min-height: 650px;
+      min-height: 550px;
       //border-radius: 0 0 200px 0;
     }
     #inner-banner {
