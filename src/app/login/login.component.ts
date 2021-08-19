@@ -8,6 +8,7 @@ import { loggin } from '../state/login/login.action';
 import { User } from '../state/login/user.model';
 import { selectMessage } from '../state/message/message.select'
 import { AppState } from '../state/app.state';
+import { clear_Message } from '../state/message/message.action';
 
 @Component({
   selector: 'app-login',
@@ -56,7 +57,12 @@ export class LoginComponent implements OnInit {
 
   getMessage() {
     this.store.pipe(select(selectMessage))
-    .subscribe(res => this.message = res.message)
+    .subscribe(res => {
+      this.message = res.message;
+      setTimeout(() => {
+        this.store.dispatch(clear_Message());
+      }, 5000);
+    })
   }
 
   back(): void {

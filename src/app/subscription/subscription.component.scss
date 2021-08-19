@@ -54,3 +54,18 @@ nz-badge {
       position: absolute;
       bottom: 20px;
   }
+
+  .alert {
+    height: 5px;
+  }
+
+  nz-alert {
+      width: 100%;
+  }
+  @media screen and (min-width: 700px){
+    nz-alert {
+        width: 50%;
+    }
+}
+
+

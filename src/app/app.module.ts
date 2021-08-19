@@ -36,6 +36,7 @@ import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
 
 
 import { NavbarComponent } from './navbar/navbar.component';
@@ -122,7 +123,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     NzBadgeModule,
     NzSkeletonModule,
     NzSpinModule,
-    NzModalModule
+    NzModalModule,
+    NzAlertModule
   ],
   providers: [
     SignupService,

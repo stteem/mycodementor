@@ -7,6 +7,8 @@ import { selectSubscriptionData} from '../state/subscription/subscription.select
 import { AppState } from '../state/app.state';
 import { getSubscription, postSubscription } from '../state/subscription/subscription.action';
 import { Subscription } from '../state/subscription/subscription.model';
+import { selectMessage } from '../state/message/message.select';
+import { clear_Message } from '../state/message/message.action';
 
 import { FormBuilder, FormGroup, FormControl, ValidationErrors, Validators } from '@angular/forms';
 import { Observable, Observer } from 'rxjs';
@@ -31,7 +33,7 @@ export class SubscriptionComponent implements OnInit {
   notLogged? = true;
   message?: string;
   closeResult = '';
-  
+  guard_message?: string
 
   validateForm!: FormGroup;
 
@@ -48,6 +50,7 @@ export class SubscriptionComponent implements OnInit {
           email: ['', [Validators.email, Validators.required]],
           comment: ['', [Validators.required]]
         });
+        this.getMessage();
   }
 
 
@@ -82,7 +85,7 @@ export class SubscriptionComponent implements OnInit {
     console.log('retrieveSubscriptionStore')
     this.store.pipe(select(selectSubscriptionData))
     .subscribe(res => {
-      if(res.subscription == null){
+      if(res.subscription === null){
         this.message = "You have not subscribed to any plan, subscribe to start booking sessions";
       }else {
         this.message = '';
@@ -91,6 +94,17 @@ export class SubscriptionComponent implements OnInit {
       }
     })
   }
+
+  getMessage() {
+    this.store.pipe(select(selectMessage))
+    .subscribe(res => {
+      this.guard_message = res.message;
+      setTimeout(() => {
+        this.store.dispatch(clear_Message());
+      }, 5000);
+    })
+  }
+
 
   get_Subscription(){
     this.authservice.loggedIn()

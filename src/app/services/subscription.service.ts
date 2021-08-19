@@ -8,6 +8,7 @@ import { Store } from '@ngrx/store';
 
 import { retrieveSubscription, getSubscription } from '../state/subscription/subscription.action';
 import { Subscription } from '../state/subscription/subscription.model';
+import { subscriptionState } from '../state/state.state';
 
 @Injectable({
   providedIn: 'root'
@@ -51,7 +52,13 @@ export class SubscriptionService {
   get_Subscription() {
     console.log('get sub called')
     return this.http.get<any>(baseURL + 'user/subscription')
-    .pipe(
+    .pipe(/*map(res => {
+      console.log('sub res ',res)
+      if (res === null) {
+        return subscriptionState;
+      }
+      return res;
+    }),*/
     shareReplay(),
     catchError(this.ProcessHttpmsgService.handleError));
   }

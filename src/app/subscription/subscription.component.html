@@ -15,6 +15,9 @@ subscription_plan?.plan == 'six months'); else showSkeleton">
     <h3>Current Subscription</h3>
     <p>{{message}}</p>
 </div>
+<div class="container alert">
+  <nz-alert *ngIf="guard_message" nzType="warning" nzMessage="{{guard_message}}" nzShowIcon></nz-alert>
+</div>
 <ng-template #showSkeleton>
     <nz-skeleton [hidden]="subErrMess || notLogged || message" style="margin-top: 80px;" class="container" [nzActive]="true"></nz-skeleton>
 </ng-template>

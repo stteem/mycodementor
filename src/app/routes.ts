@@ -4,12 +4,13 @@ import { BookSessionComponent } from './book-session/book-session.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
-import { AuthGuard } from './services/auth.guard';
+import { BookSessionGuard } from './services/booksession.guard';
 import { SignupGuard } from './services/signup.guard';
+import { SubscriptionResolver } from './services/subscription.resolver';
 
 
 export const routes: Routes = [
-    { path: 'booksession', component: BookSessionComponent, canActivate: [AuthGuard]},
+    { path: 'booksession', component: BookSessionComponent, canActivate: [BookSessionGuard], resolve: {data: SubscriptionResolver}},
     { path: 'subscription', component: SubscriptionComponent},
     { path: 'login', component: LoginComponent, canActivate: [SignupGuard]},
     { path: 'signup', component: SignupComponent, canActivate: [SignupGuard]},

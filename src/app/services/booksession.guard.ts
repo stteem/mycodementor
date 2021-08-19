@@ -7,14 +7,16 @@ import { selectUserData} from '../state/login/user.select';
 import { selectSubscriptionData } from '../state/subscription/subscription.select';
 import { AppState } from '../state/app.state';
 import { sendMessage } from '../state/message/message.action';
+import { SubscriptionService } from './subscription.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class BookSessionGuard implements CanActivate {
 
   constructor(
     public auth: AuthenticationService, 
+    private subservice: SubscriptionService,
     public router: Router,
     private store: Store<AppState>
   ) {}
@@ -28,27 +30,18 @@ export class AuthGuard implements CanActivate {
       this.router.navigate(['login']);
       return false;
     }
-    if (this.isSubscribed() === false && this.subscriptionObj() === 0) {
-      let message = 'You must subscribe to a plan before you can book a session';
-      this.store.dispatch(sendMessage({message}))
-      this.router.navigate(['subscription']);
-      return false;
-    }
-      return true;
-  }
-  
-  isSubscribed(): any {
-    this.store.pipe(select(selectUserData))
-    .subscribe(res => {
-      //console.log('is subscribed ',res.user.isSubscribed)
-      return res.user.isSubscribed;
-    })
-  }
-
-  subscriptionObj(): any {
     this.store.pipe(select(selectSubscriptionData))
     .subscribe(res => {
-      return res.subscription.session_per_month;
+      if (res.subscription === null) {
+        console.log('guard at work ',res.subscription)
+        let message = 'You must subscribe to a plan before you can book a session';
+        this.store.dispatch(sendMessage({message}))
+        this.router.navigate(['subscription']);
+        return false;
+      }
+      return true;
     })
+
+    return true;
   }
 }
