@@ -8,7 +8,7 @@ import { AppState } from '../state/app.state';
 import { getSubscription, postSubscription } from '../state/subscription/subscription.action';
 import { Subscription } from '../state/subscription/subscription.model';
 import { selectMessage } from '../state/message/message.select';
-import { clear_Message } from '../state/message/message.action';
+import { sendMessage, clear_Message } from '../state/message/message.action';
 
 import { FormBuilder, FormGroup, FormControl, ValidationErrors, Validators } from '@angular/forms';
 import { Observable, Observer } from 'rxjs';
@@ -139,6 +139,8 @@ export class SubscriptionComponent implements OnInit {
         }
         else {
           // Navigate to login page
+          let message = 'You must sign in or sign up to subscribe for a plan';
+          this.store.dispatch(sendMessage({message}));
           this.router.navigateByUrl('/login');
         }
       },
