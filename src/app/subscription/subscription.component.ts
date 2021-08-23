@@ -128,20 +128,16 @@ export class SubscriptionComponent implements OnInit {
     .subscribe({
       next: res => {
         console.log('auth res ',res)
-        if(res === true){
-          if (plan === 'free' && value === 0) {
-            // Send to database without payment
-            let data = {plan, value}
-            this.store.dispatch(postSubscription({data}))
-          } else {
-            // Call payment gateway
-          }
+        if(res === true && plan === 'free' && value === 0){
+          // Send to database without payment
+          let data = {plan, value}
+          return this.store.dispatch(postSubscription({data}))
         }
         else {
           // Navigate to login page
           let message = 'You must sign in or sign up to subscribe for a plan';
           this.store.dispatch(sendMessage({message}));
-          this.router.navigateByUrl('/login');
+          return this.router.navigateByUrl('/login');
         }
       },
       error: error => console.log(error)

@@ -45,38 +45,38 @@ subscription_plan?.plan == 'six months'); else showSkeleton">
         </div>
         <div nz-col nzXs="20" nzMd="6">
             <nz-card id="monthly" nzTitle="Monthly" class="grid-config">
-                <h3 [ngStyle]="{ 'margin-bottom.px': 16 }">$50</h3>
+                <h3 [ngStyle]="{ 'margin-bottom.px': 16 }">$100</h3>
                 <nz-list>
                     <nz-list-item>
-                        Up to 5 sessions per month
+                        Up to 8 sessions per month
                     </nz-list-item>
                     <nz-list-item>
-                        Up to 40 minutes per session
+                        Up to 60 minutes per session
                       </nz-list-item>
                       <nz-list-item>
                     </nz-list-item>
                   </nz-list>
                   <nz-list-footer class="pay-btn">
-                    <button nz-button disabled (click)="post_Subscription('monthly', 50)">Coming soon</button>
+                    <button nz-button disabled (click)="post_Subscription('monthly', 100)">Coming soon</button>
                   </nz-list-footer>
             </nz-card>
         </div>
 
         <div nz-col nzXs="20" nzMd="6">
             <nz-card id="six-months" nzTitle="6 Months (Recommended)" class="grid-config">
-                <h3 [ngStyle]="{ 'margin-bottom.px': 16 }">$250</h3>
+                <h3 [ngStyle]="{ 'margin-bottom.px': 16 }">$500</h3>
                 <nz-list>
                     <nz-list-item>
                         Up to 8 sessions per month
                     </nz-list-item>
                     <nz-list-item>
-                        Up to 40 minutes per session
+                        Up to 60 minutes per session
                       </nz-list-item>
                       <nz-list-item>
                       </nz-list-item>
                   </nz-list>
                   <nz-list-footer class="pay-btn">
-                    <button nz-button disabled (click)="post_Subscription('six months', 250)">Coming soon</button>
+                    <button nz-button disabled (click)="post_Subscription('six months', 500)">Coming soon</button>
               </nz-list-footer>
             </nz-card>
         </div> 
